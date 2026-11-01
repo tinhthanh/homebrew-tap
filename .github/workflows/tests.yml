@@ -1,0 +1,35 @@
+name: tests
+
+# Installs and tests each formula, on Linux and a Mac, whenever they change.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  formulas:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: Homebrew/actions/setup-homebrew@main
+      - name: Install and test
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: "1"
+          HOMEBREW_NO_INSTALL_CLEANUP: "1"
+        run: |
+          brew tap tinhthanh/tap "$GITHUB_WORKSPACE" 2>/dev/null || brew tap tinhthanh/tap
+          brew trust tinhthanh/tap || true
+          for f in vetgo berthd; do
+            brew install "tinhthanh/tap/$f"
+            brew test "tinhthanh/tap/$f"
+          done
+          berth version
+          berthd version
+          ls "$(brew --prefix vetgo)/libexec"
