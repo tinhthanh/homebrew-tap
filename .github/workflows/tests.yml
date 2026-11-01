@@ -18,7 +18,7 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: Homebrew/actions/setup-homebrew@main
+      - uses: Homebrew/actions/setup-homebrew@c262868c096d909fc278daa87ed9772967331ea3 # main, 2026-11-01
       - name: Install and test
         env:
           HOMEBREW_NO_AUTO_UPDATE: "1"
