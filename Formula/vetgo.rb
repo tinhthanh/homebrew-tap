@@ -14,6 +14,17 @@ class Vetgo < Formula
       url "https://github.com/tinhthanh/shipyard/releases/download/v0.3.31-fork.3/berth-darwin-amd64.tar.gz"
       sha256 "709e1a92d3eb9ae4f0d788994bb1002e22d8027b5ce70fb9dd0e2b12b35bf526"
     end
+
+    # The berthd builds `berth upgrade` puts on Mac boxes; the Linux ones
+    # come in berth's own archive.
+    resource "berthd-darwin-arm64" do
+      url "https://github.com/tinhthanh/shipyard/releases/download/v0.3.31-fork.3/berthd-darwin-arm64.tar.gz"
+      sha256 "1db5fed634fd2cd1887bb2a5c7bfcb2cf21dc67a8aa0e5d18bae28054276a3c4"
+    end
+    resource "berthd-darwin-amd64" do
+      url "https://github.com/tinhthanh/shipyard/releases/download/v0.3.31-fork.3/berthd-darwin-amd64.tar.gz"
+      sha256 "7a97e827de17f9ac6c1eb7ff20d304f486e58d499d579e7ef09372da6f55fdd9"
+    end
   end
   on_linux do
     on_arm do
@@ -23,19 +34,6 @@ class Vetgo < Formula
     on_intel do
       url "https://github.com/tinhthanh/shipyard/releases/download/v0.3.31-fork.3/berth-linux-amd64.tar.gz"
       sha256 "5b41c1ef87e2f94032dcdc8a1e809f0b8d948b18d6c6b642a2b75fb025851f09"
-    end
-  end
-
-  # The berthd builds `berth upgrade` puts on Mac boxes; the Linux ones come
-  # in berth's own archive.
-  on_macos do
-    resource "berthd-darwin-arm64" do
-      url "https://github.com/tinhthanh/shipyard/releases/download/v0.3.31-fork.3/berthd-darwin-arm64.tar.gz"
-      sha256 "1db5fed634fd2cd1887bb2a5c7bfcb2cf21dc67a8aa0e5d18bae28054276a3c4"
-    end
-    resource "berthd-darwin-amd64" do
-      url "https://github.com/tinhthanh/shipyard/releases/download/v0.3.31-fork.3/berthd-darwin-amd64.tar.gz"
-      sha256 "7a97e827de17f9ac6c1eb7ff20d304f486e58d499d579e7ef09372da6f55fdd9"
     end
   end
 

@@ -3,6 +3,8 @@
 Vetgo is a fork of [Shipyard](https://github.com/cosscom/shipyard) ([source](https://github.com/tinhthanh/shipyard)): run coding agents on your own boxes.
 
 ```sh
+brew tap tinhthanh/tap
+brew trust tinhthanh/tap          # Homebrew asks this of any tap not its own
 brew install tinhthanh/tap/vetgo    # berth: the CLI and laptop agent
 brew install tinhthanh/tap/berthd   # berthd: the daemon on a box
 ```
