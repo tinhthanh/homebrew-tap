@@ -1,8 +1,8 @@
 # Written by tinhthanh/shipyard's scripts/homebrew-cask.py for each release
 # (fork-release.yml); edits here are overwritten by the next one.
 cask "vetgo-app" do
-  version "0.3.31-fork.11"
-  sha256 "bea514351a6481043871d00f611b65034cbaa974208a847f6a7083b4bf971cd3"
+  version "0.3.31-fork.13"
+  sha256 "40d01c0609371c6bcea6babf21ec59eff81d55adff4debfe2a84d87a1ff781f2"
 
   url "https://github.com/tinhthanh/shipyard/releases/download/v#{version}/Vetgo-macos-universal.zip"
   name "Vetgo"
